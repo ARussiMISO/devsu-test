@@ -5,10 +5,9 @@ import org.springframework.beans.BeanUtils;
 import com.devsu.test.dto.ClienteDTO;
 import com.devsu.test.model.Cliente;
 
-public class MapeadorCliente implements Mapeador {
-
-    @Override
-    public ClienteDTO mapearEntidadDTO(Cliente cliente) {
+public class MapeadorCliente {
+ 
+    public static ClienteDTO mapearEntidadDTO(Cliente cliente) {
         ClienteDTO clienteDTO = new ClienteDTO();
 
         BeanUtils.copyProperties(cliente, clienteDTO);
@@ -16,10 +15,13 @@ public class MapeadorCliente implements Mapeador {
         return clienteDTO;
     }
 
-    @Override
-    public Object mapearDTOEntidad(Object dto) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mapearDTOEntidad'");
+    public static Cliente mapearDTOEntidad(ClienteDTO clienteDTO) {
+        Cliente cliente = new Cliente();
+
+        BeanUtils.copyProperties(clienteDTO, cliente);
+
+        return cliente;
     }
+
 
 }

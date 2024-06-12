@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class ClienteDTO extends PersonaDTO{
-    @NotBlank(message = "ProductId cannot be blank")
-    @Pattern(regexp = "^[0-9]+$", message = "ProductId must contain only numbers")
+    @NotBlank(message = "Cliente id no puede ser vacío")
+    @Pattern(regexp = "^[0-9]+$", message = "Cliente id debe contener sólo números")
     private long clienteId;
 
     @NotBlank(message = "La contraseña no debe estar vacía")
